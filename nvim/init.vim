@@ -3,6 +3,7 @@
 " sh -c 'curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 "        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 call plug#begin("~/.config/nvim/plugged")
+  "Plug 'davidhalter/jedi-vim'
   Plug 'junegunn/fzf'
   Plug 'leafgarland/typescript-vim'
   Plug 'pangloss/vim-javascript'
@@ -18,8 +19,8 @@ call plug#end()"Config Section
 nnoremap <C-f> :FZF<CR>
 let g:fzf_action = {
             \'ctrl-t': 'tab split',
-            \'ctrl-s': 'split',
-            \'ctrl-v': 'vsplit'
+            \'ctrl-i': 'split',
+            \'ctrl-s': 'vsplit'
             \}
 
 " Automaticaly close nvim if NERDTree is only thing left open
