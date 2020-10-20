@@ -3,6 +3,7 @@
 " sh -c 'curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 "        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 call plug#begin("~/.config/nvim/plugged")
+  Plug 'MaxMEllon/vim-jsx-pretty'
   "Plug 'davidhalter/jedi-vim'
   Plug 'junegunn/fzf'
   Plug 'leafgarland/typescript-vim'
@@ -36,10 +37,11 @@ source $HOME/.config/nvim/coc.vim
 inoremap (<tab> ()
 inoremap [<tab> []
 inoremap {<tab> {}
-"autoclose 2 lines below and position cursor in the middle 
+"autoclose 2 lines below and position cursor in the middle
 inoremap (<CR> (<CR>)<ESC>O
 inoremap [<CR> [<CR>]<ESC>O
 inoremap {<CR> {<CR>}<ESC>O
+inoremap ({<CR> ({<CR>})<ESC>O
 
 " Open new split panes to right and below
 set splitright
