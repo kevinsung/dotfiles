@@ -4,9 +4,9 @@
 "        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 call plug#begin("~/.config/nvim/plugged")
   Plug 'MaxMEllon/vim-jsx-pretty'
-  "Plug 'davidhalter/jedi-vim'
   Plug 'junegunn/fzf'
   Plug 'leafgarland/typescript-vim'
+  Plug 'nathanaelkane/vim-indent-guides'
   Plug 'pangloss/vim-javascript'
   Plug 'peitalin/vim-jsx-typescript'
   Plug 'ryanoasis/vim-devicons'
@@ -29,6 +29,9 @@ nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 " Automaticaly close nvim if NERDTree is only thing left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" Turn on indent guides by default
+let g:indent_guides_enable_on_vim_startup = 1
+
 " coc.nvim
 source $HOME/.config/nvim/coc.vim
 
@@ -42,6 +45,9 @@ inoremap (<CR> (<CR>)<ESC>O
 inoremap [<CR> [<CR>]<ESC>O
 inoremap {<CR> {<CR>}<ESC>O
 inoremap ({<CR> ({<CR>})<ESC>O
+"bracket followed by parentheses
+inoremap {)<CR> {<CR>})<ESC>O
+
 
 " Open new split panes to right and below
 set splitright
@@ -83,6 +89,10 @@ set mouse=a
 " Use H and L to navigate tabs
 nnoremap H gT
 nnoremap L gt
+
+" Use Alt-. and Alt-. to move to prev/next lines with same indentation
+nnoremap <A-,> :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%<' . line('.') . 'l\S', 'be')<CR>
+nnoremap <A-.> :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%>' . line('.') . 'l\S', 'e')<CR>
 
 " miscellaneous
 set shiftwidth=4
