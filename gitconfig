@@ -1,6 +1,5 @@
 [user]
 	name = Kevin J. Sung
 	email = kevjsung@umich.edu
-	signingkey = 433D3F3E8A557A62
 [pull]
-	rebase = true
+	ff = only
