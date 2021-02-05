@@ -37,7 +37,12 @@ RESET="\[\033[00m\]"
 RED="\[\033[0;31m\]"
 GREEN="\[\033[01;32m\]"
 BLUE="\[\033[01;34m\]"
-PS1="$GREEN\u@\h$RESET:$BLUE\W$RESET\$ "
+if [[ -z "$SSH_TTY" ]]; then
+    PROMPT_COLOR=$GREEN
+else
+    PROMPT_COLOR=$RED
+fi
+PS1="$PROMPT_COLOR\u@\h$RESET:$BLUE\W$RESET\$ "
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
