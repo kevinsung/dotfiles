@@ -10,9 +10,6 @@ source /etc/profile.d/vte.sh
 # ls alias
 alias ls='ls --color=auto'
 
-# prompt
-PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
-
 # history size
 HISTSIZE=10000
 HISTFILESIZE=100000
@@ -34,6 +31,13 @@ source ~/.bash_aliases
 export PATH="$HOME/go/bin:$HOME/.local/bin:$HOME/bin:$PATH"
 export EDITOR="vim"
 export VISUAL="vim"
+
+# prompt
+RESET="\[\033[00m\]"
+RED="\[\033[0;31m\]"
+GREEN="\[\033[01;32m\]"
+BLUE="\[\033[01;34m\]"
+PS1="$GREEN\u@\h$RESET:$BLUE\W$RESET\$ "
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
