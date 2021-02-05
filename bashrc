@@ -37,12 +37,18 @@ RESET="\[\033[00m\]"
 RED="\[\033[0;31m\]"
 GREEN="\[\033[01;32m\]"
 BLUE="\[\033[01;34m\]"
-if [[ -z "$SSH_TTY" ]]; then
-    PROMPT_COLOR=$GREEN
-else
+YELLOW="\[\033[0;33m\]"
+PROMPT_COLOR=$GREEN
+if [[ -n "$SSH_TTY" ]]; then
     PROMPT_COLOR=$RED
 fi
-PS1="$PROMPT_COLOR\u@\h$RESET:$BLUE\w$RESET\n\$ "
+function get_git_branch {
+    GIT_INFO=''
+    GIT_BRANCH=$(git branch --show-current 2> /dev/null) || return
+    GIT_INFO="[$GIT_BRANCH]"
+}
+PROMPT_COMMAND=get_git_branch
+PS1="$PROMPT_COLOR\u@\h$RESET:$BLUE\w $YELLOW\$GIT_INFO$RESET\n\$ "
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
