@@ -42,7 +42,7 @@ if [[ -z "$SSH_TTY" ]]; then
 else
     PROMPT_COLOR=$RED
 fi
-PS1="$PROMPT_COLOR\u@\h$RESET:$BLUE\W$RESET\$ "
+PS1="$PROMPT_COLOR\u@\h$RESET:$BLUE\w$RESET\n\$ "
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
