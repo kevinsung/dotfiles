@@ -11,8 +11,8 @@ source /etc/profile.d/vte.sh
 alias ls='ls --color=auto'
 
 # history size
-HISTSIZE=10000
-HISTFILESIZE=100000
+HISTSIZE=1000000
+HISTFILESIZE=1000000
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -28,7 +28,7 @@ shopt -s histappend
 source ~/.bash_aliases
 
 # User specific environment
-export PATH="$HOME/go/bin:$HOME/.local/bin:$HOME/bin:$PATH"
+export PATH="$HOME/go/bin:$HOME/bin:$HOME/.local/bin:$PATH"
 export EDITOR="vim"
 export VISUAL="vim"
 
