@@ -2,6 +2,8 @@
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
+setopt hist_ignore_space      # ignore commands that start with space
+setopt hist_verify            # show command with history expansion to user before running it
 
 # completion
 autoload -Uz compinit
@@ -9,6 +11,9 @@ compinit
 
 # aliases
 alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias diff='diff --color=auto'
+alias ip='ip --color=auto'
 source ~/.bash_aliases
 
 # environment
