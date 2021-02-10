@@ -7,9 +7,6 @@
 # see https://unix.stackexchange.com/questions/93476/gnome-terminal-keep-track-of-directory-in-new-tab
 source /etc/profile.d/vte.sh
 
-# ls alias
-alias ls='ls --color=auto'
-
 # history size
 HISTSIZE=1000000
 HISTFILESIZE=1000000
@@ -24,10 +21,14 @@ shopt -s histappend
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
-# User specific aliases and functions
+# aliases
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias diff='diff --color=auto'
+alias ip='ip --color=auto'
 source ~/.bash_aliases
 
-# User specific environment
+# environment
 export PATH="$HOME/go/bin:$HOME/bin:$HOME/.local/bin:$PATH"
 export EDITOR="vim"
 export VISUAL="vim"
