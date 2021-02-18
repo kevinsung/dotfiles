@@ -8,6 +8,10 @@ setopt hist_verify            # show command with history expansion to user befo
 # completion
 autoload -Uz compinit
 compinit
+zstyle ':completion:*' rehash true
+
+# correction
+setopt correct
 
 # aliases
 alias ls='ls --color=auto'
@@ -17,7 +21,10 @@ alias ip='ip --color=auto'
 source ~/.bash_aliases
 
 # environment
-export PATH="$HOME/go/bin:$HOME/bin:$HOME/.local/bin:$PATH"
+PATH="$HOME/bin:$PATH"
+PATH="$HOME/.local/bin:$PATH"
+PATH="$HOME/go/bin:$PATH"
+export PATH
 export EDITOR="vim"
 export VISUAL="vim"
 
@@ -45,7 +52,14 @@ bindkey '^[[Z' autosuggest-accept                 # shift + tab
 bindkey '^[[A' history-substring-search-up        # up
 bindkey '^[[B' history-substring-search-down      # down
 
+# have new gnome-terminal window preserve working directory
+# see https://unix.stackexchange.com/questions/93476/gnome-terminal-keep-track-of-directory-in-new-tab
+source /etc/profile.d/vte.sh
+
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# ghcup
+[ -f "/home/kjs/.ghcup/env" ] && source "/home/kjs/.ghcup/env" # ghcup-env
