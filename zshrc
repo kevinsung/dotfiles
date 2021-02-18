@@ -30,8 +30,12 @@ export VISUAL="vim"
 
 # prompt
 setopt prompt_subst
+PROMPT_COLOR='green'
+if [[ -n "$SSH_TTY" ]]; then
+    PROMPT_COLOR='red'
+fi
 GIT_INFO='%F{yellow}$(git branch --show-current 2> /dev/null)%f'
-FIRSTLINE='%F{green}%n@%m%f %B%F{blue}%~%f%b '$GIT_INFO
+FIRSTLINE='%F{$PROMPT_COLOR}%n@%m%f %B%F{blue}%~%f%b '$GIT_INFO
 SECONDLINE='%# '
 PROMPT=$FIRSTLINE$'\n'$SECONDLINE
 
