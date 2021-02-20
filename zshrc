@@ -58,7 +58,9 @@ bindkey '^[[B' history-substring-search-down      # down
 
 # have new gnome-terminal window preserve working directory
 # see https://unix.stackexchange.com/questions/93476/gnome-terminal-keep-track-of-directory-in-new-tab
-source /etc/profile.d/vte.sh
+if [ -f /etc/profile.d/vte.sh ]; then
+    source /etc/profile.d/vte.sh
+fi
 
 # nvm
 export NVM_DIR="$HOME/.nvm"

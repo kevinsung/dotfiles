@@ -5,7 +5,9 @@
 
 # have new gnome-terminal window preserve working directory
 # see https://unix.stackexchange.com/questions/93476/gnome-terminal-keep-track-of-directory-in-new-tab
-source /etc/profile.d/vte.sh
+if [ -f /etc/profile.d/vte.sh ]; then
+    source /etc/profile.d/vte.sh
+fi
 
 # history size
 HISTSIZE=1000000
